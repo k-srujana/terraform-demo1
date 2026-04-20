@@ -9,10 +9,10 @@ resource "aws_instance" "this" {
   user_data = <<-EOF
   #!/bin/bash
   yum update -y
-  amazon-linux-extras install nginx1 -y
+  yum install -y nginx
   systemctl start nginx
   systemctl enable nginx
-  echo "Hello from Terraform" > /usr/share/nginx/html/index.html
+  echo "SUCCESS FROM TERRAFORM" > /usr/share/nginx/html/index.html
   EOF
 
   tags = {
