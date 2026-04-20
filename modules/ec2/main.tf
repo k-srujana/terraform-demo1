@@ -2,8 +2,16 @@ resource "aws_instance" "this" {
   ami           = var.ami
   instance_type = var.instance_type
   subnet_id     = var.private_subnet_id
-  
+
   iam_instance_profile = aws_iam_instance_profile.ssm_profile.name
+
+  user_data = <<-EOF
+      #!/bin/bash
+      yum update -y
+      yum install -y nginx
+      systemctl start nginx
+      systemctl enable nginx
+    EOF
 
   tags = {
     Name = var.name
