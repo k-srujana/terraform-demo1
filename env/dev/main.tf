@@ -14,7 +14,7 @@ module "ec2" {
   source = "../../modules/ec2"
 
   ami               = "ami-0f58b397bc5c1f2e8"
-  instance_type     = "t2.micro"
+  instance_type     = "t3.micro"
   private_subnet_id = module.vpc.private_subnet_id
   iam_role          = "ssm-role"
   name              = "dev-server"
