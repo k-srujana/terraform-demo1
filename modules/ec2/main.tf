@@ -12,6 +12,7 @@ resource "aws_instance" "this" {
   amazon-linux-extras install nginx1 -y
   systemctl start nginx
   systemctl enable nginx
+  echo "Hello from Terraform" > /usr/share/nginx/html/index.html
   EOF
 
   tags = {
