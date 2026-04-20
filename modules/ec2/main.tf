@@ -1,8 +1,7 @@
 resource "aws_instance" "this" {
   ami           = var.ami
   instance_type = var.instance_type
-  subnet_id     = var.public_subnet_id   # TEMP FIX
-
+  subnet_id     = var.private_subnet_id  
   associate_public_ip_address = true
 
   iam_instance_profile = aws_iam_instance_profile.ssm_profile.name
