@@ -18,6 +18,7 @@ module "ec2" {
   private_subnet_id = module.vpc.public_subnet_ids[0]  
   iam_role          = "ssm-role"
   name              = "dev-server"
+  vpc_id = module.vpc.vpc_id 
 }
 
 module "alb" {
